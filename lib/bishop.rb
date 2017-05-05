@@ -1,7 +1,11 @@
-require 'piece'
+require 'diagonal_piece'
 
-class Bishop < Piece
+class Bishop < DiagonalPiece
   def initialize(color)
     super(color)
   end
+
+  # def move(start, end)
+  #
+  # end
 end

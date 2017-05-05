@@ -41,5 +41,7 @@ RSpec.describe Piece do
         expect(piece.vertical_decrement('a2')).to eq('a1')
       end
     end
+
+
   end
 end
