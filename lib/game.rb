@@ -1,6 +1,13 @@
-# require EVERYTHING!!!
+require_relative '../lib/bishop'
+require_relative '../lib/king'
+require_relative '../lib/rook'
+require_relative '../lib/pawn'
+require_relative '../lib/queen'
+require_relative '../lib/knight'
 
 class Game
+  attr_reader :board
+  
   def initialize
     @board = set_up_board
   end
