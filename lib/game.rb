@@ -5,11 +5,35 @@ require_relative '../lib/pawn'
 require_relative '../lib/queen'
 require_relative '../lib/knight'
 
+class NilClass
+  def to_s
+    '     '
+  end
+end
+
 class Game
   attr_reader :board
-  
+
   def initialize
     @board = set_up_board
+  end
+
+  def print_current_state
+    puts '     a     b     c     d     e     f     g     h   '
+    puts '  |-----------------------------------------------|'
+    8.downto(1).each do |num|
+      print_row(num)
+    end
+  end
+
+  def print_row(num)
+    number = num.to_s
+    string = "#{num} |"
+    ('a'..'h').to_a.each do |letter|
+      string += @board[letter + number].to_s + '|'
+    end
+    puts string
+    puts '  |-----------------------------------------------|'
   end
 
   private

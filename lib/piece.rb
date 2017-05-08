@@ -25,4 +25,8 @@ class Piece
   def in_bounds?(position)
     raise "Stop that!" if !(position.chars[0].between?('a', 'h') && position.chars[1].between?('1', '8'))
   end
+
+  def same_team?(position)
+    # is it a blocking piece or can it be captured?
+  end
 end
