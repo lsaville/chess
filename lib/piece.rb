@@ -23,6 +23,6 @@ class Piece
   end
 
   def in_bounds?(position)
-    raise "Stop that!" if !(position.chars[0].between?('a', 'h') && position.chars[1].between('1', '8'))
+    raise "Stop that!" if !(position.chars[0].between?('a', 'h') && position.chars[1].between?('1', '8'))
   end
 end

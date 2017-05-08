@@ -5,7 +5,7 @@ class Bishop < DiagonalPiece
     super(color)
   end
 
-  # def move(start, end)
-  #
-  # end
+  def move(start, destination)
+
+  end
 end

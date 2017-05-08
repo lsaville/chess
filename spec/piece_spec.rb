@@ -42,6 +42,14 @@ RSpec.describe Piece do
       end
     end
 
+    context '.in_bounds?' do
+      it 'raises an error if position is outside the chess board' do
+        piece = Piece.new('black')
+
+        expect { piece.in_bounds?('a9') }.to raise_error(RuntimeError)
+      end
+    end
+
 
   end
 end
