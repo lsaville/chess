@@ -6,6 +6,8 @@ class Piece
     @position = position
   end
 
+#need to change these methods so that we can supply a multiplier and move multiple spaces
+
   def horizontal_increment(starting_position)
     "#{starting_position[0].next}#{starting_position[1]}"
     #new_pos if in_bounds?(new_pos)

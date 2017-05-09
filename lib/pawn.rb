@@ -10,4 +10,12 @@ class Pawn < Piece
     return true if position == game_state.key(self)
     false
   end
+
+  def first_move(destination)
+    if destination == vertical_increment(position)
+      # update game_state
+    elsif
+    end
+
+  end
 end
