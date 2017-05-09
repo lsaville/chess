@@ -6,4 +6,8 @@ class Pawn < Piece
     return '  p  '
   end
 
+  def at_starting_position?(game_state)
+    return true if position == game_state.key(self)
+    false
+  end
 end
