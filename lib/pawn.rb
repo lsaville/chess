@@ -5,4 +5,5 @@ class Pawn < Piece
     return '  p* ' if color
     return '  p  '
   end
+
 end

@@ -1,8 +1,9 @@
 class Piece
-  attr_reader :color
+  attr_reader :color, :position
 
-  def initialize(color)
-    @color = color
+  def initialize(color, position)
+    @color    = color
+    @position = position
   end
 
   def horizontal_increment(starting_position)
