@@ -1,9 +1,8 @@
 class Piece
   attr_reader :color, :position
 
-  def initialize(color, position)
+  def initialize(color)
     @color    = color
-    @position = position
   end
 
 #need to change these methods so that we can supply a multiplier and move multiple spaces

@@ -12,10 +12,6 @@ class Pawn < Piece
   end
 
   def first_move(destination)
-    if destination == vertical_increment(position)
-      # update game_state
-    elsif
-    end
 
   end
 end
