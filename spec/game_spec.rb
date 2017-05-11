@@ -1,4 +1,5 @@
 require_relative '../lib/game'
+require_relative '../lib/player'
 
 RSpec.describe Game do
   context '@board' do
@@ -6,6 +7,15 @@ RSpec.describe Game do
       game = Game.new
 
       expect(game.board.a1).to be_a(Rook)
+    end
+  end
+
+  context 'basic attributes' do
+    it 'has two players' do
+      game = Game.new
+
+      expect(game.players).to be_an(Array)
+      expect(game.players[0]).to be_a(Player)
     end
   end
 

@@ -5,6 +5,7 @@ require_relative '../lib/pawn'
 require_relative '../lib/queen'
 require_relative '../lib/knight'
 require_relative '../lib/board'
+require_relative '../lib/player'
 
 class NilClass
   def to_s
@@ -13,10 +14,12 @@ class NilClass
 end
 
 class Game
-  attr_reader :board
+  attr_reader :board, :players, :turn
 
   def initialize
-    @board = Board.new
+    @board   = Board.new
+    @players = [Player.new(false), Player.new(true)]
+    @turn    = 0
   end
 
   def print_current_state
@@ -35,9 +38,6 @@ class Game
     row.each do |tile|
       string += tile.piece.to_s + '|'
     end
-    # ('a'..'h').to_a.each do |letter|
-    #   string += @board[letter + number].to_s + '|'
-    # end
     puts string
     puts '  |-----------------------------------------------|'
   end
