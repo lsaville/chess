@@ -13,6 +13,12 @@ class Board
     @state = initial_board
   end
 
+  def piece_at(location)
+    @state.find do |tile|
+      return tile.piece if tile.location == location
+    end
+  end
+
   def in_bounds?(position)
     raise "Stop that!" if !(position.chars[0].between?('a', 'h') && position.chars[1].between?('1', '8'))
   end

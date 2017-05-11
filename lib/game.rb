@@ -16,9 +16,9 @@ end
 class Game
   attr_reader :board, :players, :turn
 
-  def initialize
+  def initialize(player1, player2)
     @board   = Board.new
-    @players = [Player.new(false), Player.new(true)]
+    @players = [Player.new(false, player1), Player.new(true, player2)]
     @turn    = 0
   end
 
