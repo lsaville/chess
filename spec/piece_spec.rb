@@ -7,12 +7,6 @@ RSpec.describe Piece do
 
       expect(piece).to respond_to(:color)
     end
-
-    it 'has a position' do
-      piece = Piece.new(true)
-
-      expect(piece).to respond_to(:position)
-    end
   end
 
   describe 'movements' do
@@ -47,15 +41,5 @@ RSpec.describe Piece do
         expect(piece.vertical_decrement('a2')).to eq('a1')
       end
     end
-
-    context '.in_bounds?' do
-      it 'raises an error if position is outside the chess board' do
-        piece = Piece.new(true)
-
-        expect { piece.in_bounds?('a9') }.to raise_error(RuntimeError)
-      end
-    end
-
-
   end
 end
