@@ -22,7 +22,7 @@ class Game
     @turn    = 0
   end
 
-  def move(location, destination)
+  def move(piece, location, destination)
     #Do the location and piece match?
     #Does the piece belong to the current player?
     #Does the destination exist?
@@ -30,6 +30,20 @@ class Game
     #Does the piece move that way?
     #Is there shit in the way?
     #Does it put the player in check?
+  end
+
+  def players_piece?(location)
+    @board.state.find do |tile|
+      return true if tile.piece != nil && tile.piece.color == @players[@turn].color && tile.location == location
+    end
+    false
+  end
+
+  def piece_at_location?(piece, location)
+    @board.state.find do |tile|
+      return true if tile.piece.kind_of?(Module.const_get(piece.capitalize)) && tile.location == location
+    end
+    false
   end
 
   def print_current_state

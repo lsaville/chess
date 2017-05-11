@@ -2,6 +2,34 @@ require_relative '../lib/game'
 require_relative '../lib/player'
 
 RSpec.describe Game do
+  context '.players_piece?(piece)' do
+    it 'returns true if the piece belongs to the player' do
+      game = Game.new('Anna', 'Lee')
+
+      expect(game.players_piece?('a1')).to eq(true)
+    end
+
+    it 'returns false if the piece doesnt belong to that player' do
+      game = Game.new('Anna', 'Lee')
+
+      expect(game.players_piece?('a8')).to eq(false)
+    end
+  end
+
+  context '.piece_at_location?' do
+    it 'returns true if the piece and location match' do
+      game = Game.new('Anna', 'Lee')
+
+      expect(game.piece_at_location?('pawn', 'a2')).to eq(true)
+    end
+
+    it 'returns false if the piece and location dont match' do
+      game = Game.new('Anna', 'Lee')
+
+      expect(game.piece_at_location?('pawn', 'a3')).to eq(false)
+    end
+  end
+
   context '@board' do
     it 'has a Rook at a1' do
       game = Game.new('Anna', 'Lee')
