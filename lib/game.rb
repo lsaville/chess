@@ -22,6 +22,16 @@ class Game
     @turn    = 0
   end
 
+  def move(location, destination)
+    #Do the location and piece match?
+    #Does the piece belong to the current player?
+    #Does the destination exist?
+    #Is there something at the destination?
+    #Does the piece move that way?
+    #Is there shit in the way?
+    #Does it put the player in check?
+  end
+
   def print_current_state
     puts '     a     b     c     d     e     f     g     h   '
     puts '  |-----------------------------------------------|'

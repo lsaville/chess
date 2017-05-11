@@ -41,13 +41,4 @@ class Board
       "a1"=> Rook.new(false), "b1"=> Knight.new(false), "c1"=> Bishop.new(false), "d1"=> King.new(false), "e1"=> Queen.new(false), "f1"=> Bishop.new(false), "g1"=> Knight.new(false), "h1"=> Rook.new(false)
     }
   end
-
-  def move(location, destination)
-    #Does the piece belong to the current player?
-    #Does the destination exist?
-    #Is there something at the destination?
-    #Does the piece move that way?
-    #Is there shit in the way?
-    #Does it put the player in check?
-  end
 end
