@@ -34,19 +34,26 @@ class Game
     #after all that, move the piece aka update board
   end
 
+  def destination_occupied?(destination)
+    board.state.each do |tile|
+      return true if tile.location == destination && tile.piece
+    end
+    false
+  end
+
   def destination_exist?(destination)
     board.in_bounds?(destination)
   end
 
   def players_piece?(location)
-    @board.state.find do |tile|
-      return true if tile.piece != nil && tile.piece.color == @players[@turn].color && tile.location == location
+    board.state.find do |tile|
+      return true if tile.piece != nil && tile.piece.color == players[turn].color && tile.location == location
     end
     false
   end
 
   def piece_at_location?(piece, location)
-    @board.state.find do |tile|
+    board.state.find do |tile|
       return true if tile.piece.kind_of?(Module.const_get(piece.capitalize)) && tile.location == location
     end
     false
@@ -55,7 +62,7 @@ class Game
   def print_current_state
     puts '     a     b     c     d     e     f     g     h   '
     puts '  |-----------------------------------------------|'
-    board_state = @board.state
+    board_state = board.state
     8.downto(1).each do |num|
       row = board_state.shift(8)
       print_row(num, row)
