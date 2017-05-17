@@ -34,6 +34,10 @@ class Game
     #after all that, move the piece aka update board
   end
 
+  def possible_move?(piece, location, destination)
+    Module.const_get(piece.capitalize).valid_move?(location, destination)
+  end
+
   def destination_occupied?(destination)
     board.state.each do |tile|
       return true if tile.location == destination && tile.piece
@@ -44,7 +48,7 @@ class Game
   def destination_exist?(destination)
     board.in_bounds?(destination)
   end
-
+ç
   def players_piece?(location)
     board.state.find do |tile|
       return true if tile.piece != nil && tile.piece.color == players[turn].color && tile.location == location

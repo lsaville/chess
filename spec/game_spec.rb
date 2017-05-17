@@ -6,6 +6,10 @@ RSpec.describe Game do
     @game = Game.new('Jon', 'Lee')
   end
 
+  context '.possible_move?(piece, location, destination)' do
+    expect(@game.possible_move?("pawn", 'a2', 'a4')).to eq(true)
+  end
+
   context '.destination_occupied?(destination)' do
     it 'returns true if the destination is occupied' do
       expect(@game.destination_occupied?('a1')).to eq(true)
