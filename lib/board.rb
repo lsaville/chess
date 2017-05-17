@@ -20,7 +20,7 @@ class Board
   end
 
   def in_bounds?(position)
-    raise "Stop that!" if !(position.chars[0].between?('a', 'h') && position.chars[1].between?('1', '8'))
+    position.chars[0].between?('a', 'h') && position.chars[1].between?('1', '8')
   end
 
   def initial_board

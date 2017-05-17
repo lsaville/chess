@@ -2,6 +2,14 @@ require_relative '../lib/game'
 require_relative '../lib/player'
 
 RSpec.describe Game do
+  context '.destination_exist?(destination)' do
+    it 'returns true if the destination exists' do
+      game = Game.new('Jon', 'Lee')
+
+      expect(game.destination_exist?('a5')).to eq(true)
+    end
+  end
+
   context '.players_piece?(piece)' do
     it 'returns true if the piece belongs to the player' do
       game = Game.new('Anna', 'Lee')

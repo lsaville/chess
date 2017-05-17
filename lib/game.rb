@@ -16,9 +16,9 @@ end
 class Game
   attr_reader :board, :players, :turn
 
-  def initialize(player1, player2)
+  def initialize(player1_name, player2_name)
     @board   = Board.new
-    @players = [Player.new(false, player1), Player.new(true, player2)]
+    @players = [Player.new(false, player1_name), Player.new(true, player2_name)]
     @turn    = 0
   end
 
@@ -30,6 +30,12 @@ class Game
     #Does the piece move that way?
     #Is there shit in the way?
     #Does it put the player in check?
+
+    #after all that, move the piece aka update board
+  end
+
+  def destination_exist?(destination)
+    board.in_bounds?(destination)
   end
 
   def players_piece?(location)
