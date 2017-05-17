@@ -8,6 +8,12 @@ RSpec.describe Game do
 
       expect(game.destination_exist?('a5')).to eq(true)
     end
+
+    it 'returns false if the destination doesnt exist' do
+      game = Game.new('Jon', 'Lee')
+
+      expect(game.destination_exist?('a9')).to eq(false)
+    end
   end
 
   context '.players_piece?(piece)' do
