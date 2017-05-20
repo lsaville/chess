@@ -7,7 +7,9 @@ RSpec.describe Game do
   end
 
   context '.possible_move?(piece, location, destination)' do
-    expect(@game.possible_move?("pawn", 'a2', 'a4')).to eq(true)
+    it 'returns true if the move is possible for a given piece' do
+      expect(@game.possible_move?("pawn", 'a2', 'a4')).to eq(true)
+    end
   end
 
   context '.destination_occupied?(destination)' do

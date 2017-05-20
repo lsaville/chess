@@ -23,6 +23,23 @@ class Game
   end
 
   def move(piece, location, destination)
+    actual_piece = @board[location].piece
+    move_the_piece = [
+      piece_at_location?(piece, location),
+      players_piece?(location),
+      destination_exist?(destination),
+      destination_occupied_by_enemy?(destination),
+      possible_move?(piece, location, destination, destination_occupied?(destination))
+    ].all?
+    # looking good.  We're leaving off trying to figure out how to check the color of
+    # the piece in possible_move, but possible move calls a class method on the given
+    # piece and we never had the piece color information besides in the players_piece?
+    # method. Should we get the actual piece and pass it thus committing code smell of
+    # passing an instance of the class to a method on the class itself? Is there a
+    # better way? It seems like game should have some convenience methods around current
+    # player and maybe to grab the piece. We could simply get the color and pass it.
+    # Only time will tell...
+
     #Do the location and piece match?
     #Does the piece belong to the current player?
     #Does the destination exist?
@@ -31,7 +48,14 @@ class Game
     #Is there shit in the way?
     #Does it put the player in check?
 
-    #after all that, move the piece aka update board
+      #after all that, move the piece aka update board aka move_the_piece = true
+  end
+
+  def destination_occupied_by_enemy?(destination)
+    board.state.each do |tile|
+      return true if tile.location == destination && tile.piece.color != @players[@turn].color
+    end
+    false
   end
 
   def possible_move?(piece, location, destination)
@@ -48,7 +72,7 @@ class Game
   def destination_exist?(destination)
     board.in_bounds?(destination)
   end
-ç
+
   def players_piece?(location)
     board.state.find do |tile|
       return true if tile.piece != nil && tile.piece.color == players[turn].color && tile.location == location
